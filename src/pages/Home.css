@@ -1,195 +1,414 @@
-*{
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box; /* Fügt Box-Sizing hinzu, um Probleme bei der Berechnung von Breiten und Höhen zu vermeiden */
 }
+
 .home-container {
-    min-height: 100vh; /* Mindesthöhe des Viewports */
-    background-image: url('/public/image/home_image.png'); /* Pfad zum Hintergrundbild */
-    background-size: cover; /* Bildgröße anpassen */
-    background-position: center; /* Zentrieren des Hintergrundbildes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding-bottom: 100px; /* Platz für den Footer */
-    overflow: hidden; /* Verhindert das Überlaufen der schrägen Kanten */
-  }
-  
-  .hero-section {
-    transform: skewY(-3deg); /* Schräge für die obere Kante */
-    background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe für den Textbereich */
-    padding: 50px 0; /* Vertikaler Abstand */
-    width: 100%; /* Volle Breite */
-  }
-  
-  .hero-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Schatten für bessere Lesbarkeit */
-  }
-  
+  min-height: 100vh; /* Mindesthöhe des Viewports */
+  background-image: url('/public/image/home_image.png'); /* Pfad zum Hintergrundbild */
+  background-size: cover; /* Bildgröße anpassen */
+  background-position: center; /* Zentrieren des Hintergrundbildes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-bottom: 100px; /* Platz für den Footer */
+  overflow: hidden; /* Verhindert das Überlaufen der schrägen Kanten */
+}
+
+.hero-section {
+  transform: skewY(-3deg); /* Schräge für die obere Kante */
+  background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe für den Textbereich */
+  padding: 50px 0; /* Vertikaler Abstand */
+  width: 100%; /* Volle Breite */
+}
+
+.hero-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Schatten für bessere Lesbarkeit */
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Stil für die zweite Section */
+.second-home-container {
+  min-height: 100vh; /* Mindesthöhe des Viewports */
+  background-image: url('/public/image/home_to_portrait.png'); /* Pfad zum Hintergrundbild */
+  background-size: cover; /* Bildgröße anpassen */
+  background-position: center left; /* Hintergrundbild links ausrichten */
+  display: flex; /* Flexbox aktivieren */
+  justify-content: center; /* Zentrieren des Inhalts */
+  align-items: center; /* Vertikal zentrieren */
+  color: white;
+  overflow: hidden; /* Verhindert das Überlaufen der schrägen Kanten */
+}
+
+.second-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe für den Textbereich */
+  width: 100%; /* Volle Breite */
+  padding: 25px;
+}
+
+.second-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Schatten für bessere Lesbarkeit */
+}
+
+.second-text h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.second-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.third-home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px;
+}
+.third-section{
+  margin-right: 25%;
+}
+.third-home-container img {
+  width: 40%; /* Breite des Bildes anpassen */
+  max-width: 400px; /* Maximale Breite des Bildes */
+  height: auto; /* Automatische Höhe basierend auf Breite */
+  border-radius: 10px;
+  margin-left: 25%; /* Abstand links vom Bild */
+}
+
+.third-home-container h1 {
+  font-size: 2.2rem;
+  margin-left: 5%; /* Abstand links vom Titel */
+}
+
+.third-home-container .btn {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+  display: block; /* Button als Blockelement anzeigen */
+  margin-top: 20px; /* Abstand zum Titel */
+  width: 150px;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 25%;
+}
+
+.third-home-container .btn:hover {
+  opacity: 0.8;
+}
+
+.fourth-home-container {
+  display: flex;
+  justify-content: space-around; /* Gleichmäßiger Abstand zwischen den Elementen */
+  align-items: center;
+  margin-top: 50px; /* Abstand nach oben */
+  margin-bottom: 50px;
+}
+
+.fourth-home-container img {
+  width: 200px; /* Festgelegte Breite der Bilder */
+  height: auto; /* Automatische Höhe basierend auf Breite */
+  border-radius: 10px; /* Abgerundete Ecken */
+}
+
+.Sponsoren {
+  margin-left: 100px;
+  font-size: 60px;
+  width: 600px;
+}
+
+.Sponsoren_text {
+  margin-left: 100px;
+  font-size: 25px;
+  width: 600px;
+}
+
+.Sponsoren_text h1 {
+  font-size: 60px;
+}
+
+.werde-partner {
+  margin-left: 100px;
+  font-size: large;
+}
+
+.werde-partner p {
+  font-size: large;
+  width: 600px;
+  font-weight: 300;
+}
+
+.Kontakt_border {
+  border-top: solid;
+  border-bottom: solid;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 25px;
+  margin-bottom: 100px;
+}
+
+.Kontakt h1 {
+  font-size: 36px;
+}
+
+.Kontakt {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.Kontakt p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.Kontakt .E-Mail {
+  margin-left: 100px;
+}
+
+@media (max-width: 1200px) {
   .hero-text h1 {
-    font-size: 3rem;
-    margin: 0;
+    font-size: 2.5rem;
   }
-  
+
   .hero-text p {
-    font-size: 1.5rem;
-    margin: 0;
+    font-size: 1.2rem;
   }
-  
-  /* Stil für die zweite Section */
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
   .second-home-container {
-    min-height: 100vh; /* Mindesthöhe des Viewports */
-    background-image: url('/public/image/home_to_portrait.png'); /* Pfad zum Hintergrundbild */
-    background-size: cover; /* Bildgröße anpassen */
-    background-position: center left; /* Hintergrundbild links ausrichten */
-    justify-content: left;
-    align-items: center;
-    color: white;
-    overflow: hidden; /* Verhindert das Überlaufen der schrägen Kanten */
-  }
-  
-  .second-section {
-    min-height: 100vh;
-    display: flex;
+    background-position: center; /* Hintergrundbild zentrieren */
     justify-content: center;
+    width: 100%;
+  }
+
+  .second-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .second-text h2 {
+    font-size: 2rem;
+  }
+
+  .second-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .second-home-container {
+    min-height: 80vh;
+    width: 100%;
+  }
+
+  .second-section {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .second-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .second-text p {
+    font-size: 0.9rem;
+  }
+
+  .third-home-container {
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 20px;
+  }
+
+  .third-home-container img {
+    width: 100%;
+    max-width: 400px;
     height: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe für den Textbereich */
-    width: 50%; /* Nur die linke Hälfte des Bildschirms */
-    padding: 25px;
-    margin-left: 0px;
-  }
-  
-  .second-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Schatten für bessere Lesbarkeit */
-  }
-  
-  .second-text h2 {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  .second-text p {
-    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-left: 0;
     margin-bottom: 20px;
   }
-  
-  .btn {
-    display: inline-block;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: opacity 0.3s ease;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }  
-  
-.third-home-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px;
-  }
-  
-  .third-home-container img {
-    width: 40%; /* Breite des Bildes anpassen */
-    max-width: 400px; /* Maximale Breite des Bildes */
-    height: auto; /* Automatische Höhe basierend auf Breite */
-    border-radius: 10px;
-    margin-left: 12%; /* Abstand links vom Bild */
-  }
-  
+
   .third-home-container h1 {
-    font-size: 2.2rem;
-    margin-left: 5%; /* Abstand links vom Titel */
-  }
-  
-  .third-home-container .btn {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: opacity 0.3s ease;
-    display: block; /* Button als Blockelement anzeigen */
-    margin-top: 20px; /* Abstand zum Titel */
-    width: 101px;
+    font-size: 1.8rem;
+    margin-left: 0;
     text-align: center;
-    margin-left: 5%;
   }
-  
-  .third-home-container .btn:hover {
-    opacity: 0.8;
+
+  .third-home-container .btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
   }
 
   .fourth-home-container {
-    display: flex;
-    justify-content: space-around; /* Gleichmäßiger Abstand zwischen den Elementen */
-    align-items: center;
-    margin-top: 50px; /* Abstand nach oben */
-    margin-bottom: 50px;
+    flex-direction: column;
+    padding: 20px;
   }
-  
+
   .fourth-home-container img {
-    width: 200px; /* Festgelegte Breite der Bilder */
-    height: auto; /* Automatische Höhe basierend auf Breite */
-    border-radius: 10px; /* Abgerundete Ecken */
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
   }
-  .Sponsoren{
-    margin-left: 100px;
-    font-size: large;
-    font-weight: bold;
-    font-size: 60px;
-    width: 600px;
+
+  .Sponsoren {
+    margin: 0 auto;
+    font-size: 2rem;
+    width: 90%;
+    text-align: center;
   }
-  .Sponsoren_text{
-    margin-left: 100px;
-    font-size: large;
-    font-weight: bold;
-    font-size: 25px;
-    width: 600px;
+
+  .Sponsoren_text {
+    margin: 0 auto;
+    font-size: 1rem;
+    width: 90%;
+    text-align: center;
   }
-  .Sponsoren_text h1{
-    font-size: 60px;
+
+  .Sponsoren_text h1 {
+    font-size: 2rem;
   }
-  .werde-partner{
-    margin-left: 100px;
-    font-size: large;
-   
+
+  .werde-partner {
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
   }
-  .werde-partner p{
-    font-size: large;
-    width: 600px;
-    font-weight: 300;
-    
+
+  .werde-partner p {
+    font-size: 0.8rem;
+    width: 100%;
   }
-  .Kontakt_border{
-    border-top: solid;
-    border-bottom: solid;
-    margin-left: 100px;
-    margin-right: 100px;
-    font-size: 25px;
-    margin-bottom: 100px;
-  }
-  .Kontakt h1{
-    font-size: 36px;
+
+  .Kontakt_border {
+    margin: 0 auto;
+    font-size: 1.2rem;
+    width: 90%;
   }
 
   .Kontakt {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
+
   .Kontakt p {
-    margin: 5px 0;
-    font-size: 18px;
+    font-size: 0.9rem;
   }
-  .Kontakt .E-Mail{
-    margin-left: 100px;
+
+  .Kontakt .E-Mail {
+    margin-left: 0;
   }
+
+  .Kontakt_border h1 {
+    text-align: center;
+  }
+
+  .Kontakt_border {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 0.8rem;
+  }
+
+  .second-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .second-text p {
+    font-size: 0.8rem;
+  }
+
+  .third-home-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .third-home-container .btn {
+    padding: 8px 16px;
+  }
+
+  .fourth-home-container img {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .Sponsoren {
+    font-size: 1.5rem;
+  }
+
+  .Sponsoren_text h1 {
+    font-size: 1.5rem;
+  }
+
+  .werde-partner p {
+    font-size: 0.8rem;
+  }
+
+  .Kontakt h1 {
+    font-size: 1.5rem;
+  }
+
+  .Kontakt_border {
+    font-size: 1rem;
+  }
+
+  .Kontakt_border h1 {
+    text-align: center;
+  }
+}

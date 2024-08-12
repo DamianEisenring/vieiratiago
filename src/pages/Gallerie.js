@@ -1,20 +1,20 @@
-// src/components/Gallery.js
 import React, { useState, useEffect } from "react";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { storage, auth } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import './Gallerie.css';
 
 const Gallerie = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const [user, setUser] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  // Überwache den Authentifizierungsstatus
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-
     return () => unsubscribe();
   }, []);
 
@@ -40,10 +40,20 @@ const Gallerie = () => {
     listImages();
   }, []);
 
+  const openModal = (url) => {
+    setSelectedImage(url);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <div>
-      {user ? (
-        <div>
+      {user && (
+        <div className="upload-container">
           <input
             type="file"
             onChange={(event) => {
@@ -52,14 +62,25 @@ const Gallerie = () => {
           />
           <button onClick={uploadImage}>Upload Image</button>
         </div>
-      ) : (
-        <p></p>
       )}
       <div className="image-gallery">
         {imageUrls.map((url, index) => (
-          <img key={index} src={url} alt="gallery" style={{ width: '200px', margin: '10px' }} />
+          <img
+            key={index}
+            src={url}
+            alt="gallery"
+            onClick={() => openModal(url)} // Öffne das Modal beim Klick auf ein Bild
+          />
         ))}
       </div>
+      {modalOpen && (
+        <div className="modal">
+          <span className="close" onClick={closeModal}>&times;</span>
+          <div className="modal-content">
+            <img src={selectedImage} alt="Enlarged view" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

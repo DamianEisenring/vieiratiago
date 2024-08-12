@@ -1,0 +1,96 @@
+.portrait-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: flex-start; /* Bild und Text ausrichten */
+  }
+  
+  .portrait-image {
+    max-width: 500px; /* Maximalbreite des Bildes */
+    margin-right: 20px;
+    border-radius: 10px;
+    margin-right: 100px;
+  }
+  
+  .portrait-content {
+    flex: 1; /* Der Textbereich nimmt den restlichen Platz ein */
+  }
+  
+  .portrait-content h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .portrait-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .portrait-editing input[type="text"],
+  .portrait-editing textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .portrait-editing textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .additional-field-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .additional-field-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .additional-field-container button {
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .additional-field-container button:hover {
+    background-color: #c0392b;
+  }
+  
+  .portrait-editing button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .portrait-editing button:hover {
+    background-color: #2980b9;
+  }
+  
+  .portrait-editing .cancel-button {
+    background-color: #95a5a6;
+  }
+  
+  .portrait-editing .cancel-button:hover {
+    background-color: #7f8c8d;
+  }
+  

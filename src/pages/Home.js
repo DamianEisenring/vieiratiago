@@ -35,7 +35,7 @@ const Home = () => {
 
       <div className="third-home-container">
         <img src="/image/home_to_sponsoren.png" alt="Logo" />
-        <div>
+        <div className="third-section">
           <h1>Unterstütze mich auf meinem Weg</h1>
           <Link to="/partner" className="btn" onClick={scrollToTop}>
             Mehr Erfahren

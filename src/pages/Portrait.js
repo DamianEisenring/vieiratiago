@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, auth } from '../config/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import './Portrait.css';
 
 const Portrait = () => {
   const [user, setUser] = useState(null);
@@ -69,9 +70,10 @@ const Portrait = () => {
   };
 
   return (
-    <div>
-      {isEditing && user ? ( // Nur eingeloggte Benutzer können bearbeiten
-        <div>
+    <div className="portrait-container">
+      <img src="/image/portrait.png" alt="portrait" className="portrait-image" />
+      {isEditing && user ? (
+        <div className="portrait-content portrait-editing">
           <input
             type="text"
             value={title}
@@ -82,7 +84,7 @@ const Portrait = () => {
             onChange={(e) => setContent(e.target.value)}
           />
           {additionalFields.map((field, index) => (
-            <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+            <div key={index} className="additional-field-container">
               <input
                 type="text"
                 name="label"
@@ -97,17 +99,19 @@ const Portrait = () => {
                 value={field.value}
                 onChange={(e) => handleFieldChange(index, e)}
               />
-              <button onClick={() => removeField(index)} style={{ marginLeft: '10px' }}>
+              <button onClick={() => removeField(index)}>
                 Löschen
               </button>
             </div>
           ))}
           <button onClick={addField}>Neues Feld hinzufügen</button>
           <button onClick={saveData}>Speichern</button>
-          <button onClick={() => setIsEditing(false)}>Abbrechen</button>
+          <button onClick={() => setIsEditing(false)} className="cancel-button">
+            Abbrechen
+          </button>
         </div>
       ) : (
-        <div>
+        <div className="portrait-content">
           <h1>{title}</h1>
           <p>{content}</p>
           {additionalFields.map((field, index) => (
