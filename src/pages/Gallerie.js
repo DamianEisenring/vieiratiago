@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { auth, db, storage } from '../config/firebase';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+// src/components/Gallery.js
+import React, { useState, useEffect } from "react";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { storage, auth } from "../config/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Gallerie = () => {
-  const [image, setImage] = useState(null);
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
   const [user, setUser] = useState(null);
 
-  // Authentifizierungsstatus überwachen
+  // Überwache den Authentifizierungsstatus
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -19,71 +18,48 @@ const Gallerie = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleImageChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
-
-  const handleUpload = async () => {
-    if (image && user) {
-      const imageRef = ref(storage, `images/${image.name}-${Date.now()}`);
-      try {
-        await uploadBytes(imageRef, image);
-        const url = await getDownloadURL(imageRef);
-        await addDoc(collection(db, 'Gallerie'), { imageUrl: url });
-        alert('Bild erfolgreich hochgeladen!');
-        fetchImages();
-      } catch (error) {
-        console.error('Fehler beim Hochladen', error);
-        alert('Fehler beim Hochladen des Bildes');
-      }
-    } else if (!user) {
-      alert('Bitte melden Sie sich an, um ein Bild hochzuladen');
-    } else {
-      alert('Bitte wählen Sie ein Bild aus');
-    }
-  };
-
-  const fetchImages = async () => {
-    setLoading(true);
-    const querySnapshot = await getDocs(collection(db, 'Gallerie'));
-    const imagesList = [];
-    querySnapshot.forEach((doc) => {
-      imagesList.push(doc.data().imageUrl);
+  const uploadImage = () => {
+    if (imageUpload == null || !user) return;
+    const imageRef = ref(storage, `images/${imageUpload.name}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
     });
-    setImages(imagesList);
-    setLoading(false);
   };
 
   useEffect(() => {
-    fetchImages();
+    const listImages = async () => {
+      const imagesListRef = ref(storage, "images/");
+      const response = await listAll(imagesListRef);
+      const urls = await Promise.all(
+        response.items.map((item) => getDownloadURL(item))
+      );
+      setImageUrls(urls);
+    };
+    listImages();
   }, []);
 
   return (
     <div>
       {user ? (
-        <>
-          <h2>Bild hochladen</h2>
-          <input type="file" onChange={handleImageChange} />
-          <button onClick={handleUpload}>Bild hochladen</button>
-        </>
-      ) : (
-        <p>Bitte melden Sie sich an, um Bilder hochzuladen.</p>
-      )}
-
-      <h2>Galerie</h2>
-      {loading ? (
-        <p>Lade Bilder...</p>
-      ) : (
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {images.map((url, index) => (
-            <div key={index} style={{ margin: '10px' }}>
-              <img src={url} alt={`Bild ${index}`} style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
-            </div>
-          ))}
+        <div>
+          <input
+            type="file"
+            onChange={(event) => {
+              setImageUpload(event.target.files[0]);
+            }}
+          />
+          <button onClick={uploadImage}>Upload Image</button>
         </div>
+      ) : (
+        <p></p>
       )}
+      <div className="image-gallery">
+        {imageUrls.map((url, index) => (
+          <img key={index} src={url} alt="gallery" style={{ width: '200px', margin: '10px' }} />
+        ))}
+      </div>
     </div>
   );
 };
