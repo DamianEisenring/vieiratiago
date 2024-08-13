@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { storage, auth } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import './Gallerie.css';
+import "./Gallerie.css";
 
 const Gallerie = () => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -51,7 +51,7 @@ const Gallerie = () => {
   };
 
   return (
-    <div>
+    <div className="image-gallery-container">
       {user && (
         <div className="upload-container">
           <input
@@ -75,7 +75,9 @@ const Gallerie = () => {
       </div>
       {modalOpen && (
         <div className="modal">
-          <span className="close" onClick={closeModal}>&times;</span>
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
           <div className="modal-content">
             <img src={selectedImage} alt="Enlarged view" />
           </div>

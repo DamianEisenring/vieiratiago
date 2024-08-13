@@ -209,6 +209,12 @@
   .hero-text p {
     font-size: 1.2rem;
   }
+  .second-home-container{
+    background-position: center;
+  }
+  .fourth-home-container img {
+    max-width: 150px; /* Kleinere maximale Breite für kleinere Bildschirme */
+  }
 }
 
 @media (max-width: 768px) {
@@ -237,6 +243,9 @@
 
   .second-text p {
     font-size: 1rem;
+  }
+  .fourth-home-container img {
+    max-width: 100px; /* Kleinere maximale Breite für kleinere Bildschirme */
   }
 }
 
@@ -291,6 +300,9 @@
   .fourth-home-container {
     flex-direction: column;
     padding: 20px;
+  }
+  .third-section{
+    margin: 0;
   }
 
   .fourth-home-container img {

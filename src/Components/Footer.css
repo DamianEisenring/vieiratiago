@@ -1,56 +1,42 @@
+
 .footer {
   background-color: #333;
   color: white;
   padding: 1rem;
   display: flex;
-  flex-wrap: wrap; /* Ermöglicht das Umfließen der Elemente */
-  justify-content: space-between; /* Verteilung der Elemente auf der Hauptachse */
-  align-items: center; /* Zentriert die Elemente entlang der Querachse */
-  position: relative; /* Positioniert den Footer relativ zum Container */
+  justify-content: space-between;
+  align-items: flex-start; /* Geändert zu align-items: flex-start */
+  flex-wrap: wrap;
   bottom: 0;
-  width: 100%; /* Stellt sicher, dass der Footer die gesamte Breite einnimmt */
+  width: auto;
 }
 
-.footer-left,
+.footer-left {
+  flex: 1;
+  margin-left: 7%;
+}
+
 .footer-right {
   flex: 1;
+  text-align: right;
+  margin-right: 7%; /* Geändert zu 7% für gleichmäßigen Abstand */
 }
 
-/* Stile für den linken Bereich des Footers */
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert die Kontaktinformationen */
-  margin-left: 0; /* Entfernt den Margin für kleinere Bildschirme */
-  margin-bottom: 20px; /* Fügt einen unteren Margin hinzu für besseren Abstand */
-}
 
-/* Stile für die Kontaktinformationen */
 .contact-info {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Zentriert die Kontaktinformationen innerhalb des Containers */
-  margin: 0; /* Entfernt den Margin */
+  align-items: flex-start;
+  margin: 0; /* Hinzugefügt, um den standardmäßigen Margin zu entfernen */
 }
 
-/* Stile für die Kontaktinformationen-Passagen */
 .contact-info p {
   margin: 5px 0;
 }
 
-/* Stile für den rechten Bereich des Footers */
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert die Social Icons */
-  text-align: center;
-  margin-right: 0; /* Entfernt den Margin für kleinere Bildschirme */
-}
-
-/* Stile für die Social-Media-Icons */
 .social-icons {
   display: inline-flex;
-  align-items: center; /* Zentriert die Icons vertikal */
+  align-items: center; /* Hinzugefügt, um die Icons vertikal zu zentrieren */
 }
 
 .social-icons a {
@@ -64,15 +50,13 @@
   opacity: 0.8;
 }
 
-/* Stile für den Copyright-Bereich */
 .copyright {
   flex-basis: 100%;
-  text-align: center; /* Zentriert den Text */
+  text-align: left;
   padding: 0.5rem 0;
   font-size: 11px;
-  margin-left: 0; /* Entfernt den linken Margin für kleinere Bildschirme */
+  margin-left: 7%;
 }
-
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .footer {
@@ -96,5 +80,8 @@
   .copyright {
     margin-left: 0; /* Entfernt den linken Margin für kleinere Bildschirme */
     text-align: center; /* Zentriert den Text */
+  }
+  .contact-info{
+    align-items: center;
   }
 }

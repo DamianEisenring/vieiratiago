@@ -1,87 +1,142 @@
-/* src/Gallerie.css */
+/* Container für die Galerie mit Abstand nach oben, um nicht mit der Navbar zu überlappen */
+.image-gallery-container {
+  padding-top: 80px; 
+}
 
 .image-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: calc(25% - 20px); /* Bilder nehmen bis zu 25% der Breite ein, abzüglich des Abstandes */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer; /* Zeigt an, dass das Bild anklickbar ist */
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.upload-container input[type="file"] {
+  margin-right: 10px;
+}
+
+.upload-container button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-container button:hover {
+  background-color: #2980b9;
+}
+
+/* Modal-Stil */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1200px) {
   .image-gallery img {
-    width: auto;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer; /* Zeigt an, dass das Bild anklickbar ist */
+    width: calc(33.333% - 20px); /* Drei Bilder nebeneinander bei mittelgroßen Bildschirmen */
   }
-  
+}
+
+@media (max-width: 1024px) {
+  .image-gallery img {
+    width: calc(50% - 20px); /* Zwei Bilder nebeneinander bei kleineren Bildschirmen */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-gallery img {
+    width: 100%; /* Ein Bild pro Zeile bei kleinen Bildschirmen */
+  }
+}
+
+@media (max-width: 576px) {
+  .image-gallery {
+    gap: 10px; /* Verringert den Abstand zwischen den Bildern für sehr kleine Bildschirme */
+  }
+
+  .image-gallery img {
+    width: 100%; /* Ein Bild pro Zeile bei sehr kleinen Bildschirmen */
+    max-width: 100%;
+  }
+
   .upload-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .upload-container input[type="file"] {
-    margin-right: 10px;
-  }
-  
-  .upload-container button {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .upload-container button:hover {
-    background-color: #2980b9;
-  }
-  
-  .modal {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
   }
-  
+
+  .upload-container input[type="file"] {
+    margin: 0 0 10px 0; /* Abstände zwischen den Elementen im Upload-Container */
+  }
+
+  .upload-container button {
+    width: 100%; /* Button nimmt die volle Breite ein */
+  }
+
   .modal-content {
-    position: relative;
-    margin: auto;
-    padding: 20px;
-    background-color: #fefefe;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 700px;
+    width: 90%; /* Modal passt sich besser kleinen Bildschirmen an */
   }
-  
-  .modal-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
+
   .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+    font-size: 24px; /* Reduziert die Größe des Schließen-Buttons */
   }
-  
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
+}
