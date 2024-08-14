@@ -71,7 +71,7 @@ const Portrait = () => {
 
   return (
     <div className="portrait-container">
-      <img src="/image/portrait.png" alt="portrait" className="portrait-image" />
+      <img src="/image/home_to_sponsoren.png" alt="portrait" className="portrait-image" />
       {isEditing && user ? (
         <div className="portrait-content portrait-editing">
           <input

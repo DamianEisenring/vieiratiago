@@ -10,12 +10,13 @@
 }
 
 .portrait-image {
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   height: auto;
-  margin-right: 20px;
+  margin-right: 50px;
   border-radius: 10px;
   margin-top: 20px;
+  align-self: center;
 }
 
 .portrait-content {
@@ -123,11 +124,11 @@
 
 @media (max-width: 576px) {
   .portrait-container {
-    padding: 10px; /* Reduziere das Padding für sehr kleine Bildschirme */
+    padding: 10px; 
   }
 
   .portrait-content h1 {
-    font-size: 1.5em; /* Noch kleinere Schriftgröße für Überschriften */
+    font-size: 1.5em; 
   }
 
   .portrait-content p {

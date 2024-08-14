@@ -110,7 +110,8 @@
 
 .third-home-container h1 {
   font-size: 2.2rem;
-  margin-left: 5%; /* Abstand links vom Titel */
+  margin-left: 50px; /* Abstand links vom Titel */
+  width: 300px;
 }
 
 .third-home-container .btn {
@@ -124,7 +125,7 @@
   margin-top: 20px; /* Abstand zum Titel */
   width: 150px;
   text-align: center;
-  margin-left: 5%;
+  margin-left: 50px;
   margin-right: 25%;
 }
 
@@ -213,10 +214,16 @@
     background-position: center;
   }
   .fourth-home-container img {
-    max-width: 150px; /* Kleinere maximale Breite für kleinere Bildschirme */
+    max-width: 150px; 
   }
 }
 
+@media (max-width: 920px){
+  .third-home-container h1{
+    margin-left: 50px; 
+    width: 150px;
+  }
+}
 @media (max-width: 768px) {
   .hero-text h1 {
     font-size: 2rem;
@@ -250,9 +257,13 @@
 }
 
 @media (max-width: 576px) {
+  .home-container{
+    background-image: url(/public/image/small_home_container.png);
+  }
   .second-home-container {
     min-height: 80vh;
     width: 100%;
+    background-image: url(/public/image/portrait.png);
   }
 
   .second-section {
@@ -289,6 +300,7 @@
     font-size: 1.8rem;
     margin-left: 0;
     text-align: center;
+    width: 300px;
   }
 
   .third-home-container .btn {
@@ -303,6 +315,7 @@
   }
   .third-section{
     margin: 0;
+    width: auto;
   }
 
   .fourth-home-container img {

@@ -1,0 +1,64 @@
+.agenda-container {
+  padding: 2rem;
+  background: url("/public/image/Agenda.png") no-repeat center center;
+  background-size: cover; /* Passt das Bild an, sodass es den gesamten Container bedeckt */
+  height: 1000px;
+  color: #fff;
+}
+
+.agenda-container h2 {
+  margin-left: 40px;
+}
+
+.agenda-content {
+  margin-top: 1rem;
+  font-size: large;
+}
+
+.agenda-content li {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.agenda-editing .event-field-container {
+  margin-bottom: 5px;
+}
+
+.event-field-container input {
+  margin-right: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.cancel-button {
+  background-color: #a00;
+}
+
+.cancel-button:hover {
+  background-color: #c00;
+}
+
+@media (max-width: 1050px) {
+  .agenda-container {
+    background: url("/public/image/Agenda_smaller.png") no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 800px) {
+  .agenda-container {
+    background: url("/public/image/smallest_Agenda_foto.png") no-repeat center center;
+    background-size: cover;
+  }
+}
